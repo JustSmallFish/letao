@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet/less" href="./css/myindex.less">
     <script src="./lib//less/less-js/less.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
 
 </head>
 
 <body>
-    <div class="container" id="layout">
-        <div class="header" id="header">
+    <div class="container clearfix" id="layout">
+        <div class="header clearfix" id="header">
             <a href="javascript:void(0)" class="logo">
                 ITBOSS
             </a>
@@ -28,13 +29,57 @@
                 </a>
             </div>
         </div>
-        
+        <!-- 侧边栏 -->
+        <div id="leftSide" class="pull-left">
+            <div class="userInfor">
+                <img class="headPortrait" src="./images/default.png" alt="">
+                <i>超级管理员</i>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)  ">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" id="classifyFoldBtn">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        <span >分类管理</span>
+                    </a>
+                        <div class="classify" id="classifyFoldContent">
+                           
+                            <a href="javascript:void(0)" class="level1">一级分类</a>
+                            <a href="javascript:void(0)" class="level2">二级分类</a>
+                            </a>
+                        </div>
+                
+                    
+                </li>
+                <li>
+                    <a href="javascript:void(0)  ">
+                        <i class="glyphicon glyphicon-tags"></i>
+                        <span>商标管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 主体 -->
+        <div id="contentBody" class=" clearfix">
+            <div id="histogram" class="pull-left" style="width: 500px;height:400px;">
+            </div>
+            <div id="BinTu" class="pull-right" style="width: 500px;height:400px;">
+                    
+                                </div>
+
+        </div>
 
     </div>
 
 
 
     <script src="./lib/jquery/jquery.min.js"></script>
+
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="./js/myindex.js"></script>
 </body>
