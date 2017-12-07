@@ -1,0 +1,26 @@
+body,html {
+    width: 100%;
+    /* height: 2000px; */
+    background-color: #222D32;
+}
+.container,.row {
+    width: 100%;
+}
+.col-xs-4.col-xs-offset-4 {
+    padding: 0;
+    /* height: 200px; */
+    /* background-color: #ffffff; */
+    margin-top: 200px;  
+}
+.panel-heading {
+    padding: 0px;
+
+    background-color: #337AB7;
+}
+.panel-title.bg-primary {
+    line-height: 48px;
+    height: 48px;
+    color: white;
+    text-align: center;
+
+}
