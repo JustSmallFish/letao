@@ -38,11 +38,15 @@ $(function () {
 
     //点击禁用、启用实现用户状态切换
 
-    $('#tbodyTmp').on('click','#tbodyTmp>tr>td>button',function(){
-        var deleteStatu = $('#tbodyTmp>tr>td>button').attr('data-isDelete');
-        if (deleteStatu==0){
-            
-        }
+    $('#tbodyTmp').on('click','button',function(){
+        console.log($(this));
+
+        var deleteStatu = $(this).attr('data-isDelete');
+        console.log(deleteStatu);
+        // if (deleteStatu==0){
+        //     $('#tbodyTmp>tr>td>button').html('启用');
+        //     $('#tbodyTmp>tr>td>button').removeClass("btn-danger").addClass("btn-primary")
+        // }
 
     })
 
