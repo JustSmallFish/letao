@@ -1,20 +1,20 @@
-$(function(){
+$(function () {
 
-  
 
-//用户名密码的表单验证
-    //使用表单校验插件
-$('form').bootstrapValidator({
+
+  //用户名密码的表单验证
+  //使用表单校验插件
+  $('form').bootstrapValidator({
     //1. 指定不校验的类型，默认为[':disabled', ':hidden', ':not(:visible)'],可以不设置
     // excluded: [':disabled', ':hidden', ':not(:visible)'],
-  
+
     //2. 指定校验时的图标显示，默认是bootstrap风格
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
       invalid: 'glyphicon glyphicon-remove',
       validating: 'glyphicon glyphicon-refresh'
     },
-  
+
     //3. 指定校验字段
     fields: {
       //校验用户名，对应name表单的name属性
@@ -35,8 +35,8 @@ $('form').bootstrapValidator({
             regexp: /^[a-zA-Z0-9_\.]+$/,
             message: '用户名由数字字母下划线和.组成'
           },
-          callback : {
-              message:'用户名不存在'
+          callback: {
+            message: '用户名不存在'
           }
         }
       },
@@ -52,18 +52,18 @@ $('form').bootstrapValidator({
             max: 30,
             message: '用户名长度必须在6到30之间'
           },
-          callback : {
-            message:'密码错误'
-        }
+          callback: {
+            message: '密码错误'
+          }
           //正则校验
-        //   regexp: {
-        //     regexp: /^[a-zA-Z0-9_\.]+$/,
-        //     message: '用户名由数字字母下划线和.组成'
-        //   }
+          //   regexp: {
+          //     regexp: /^[a-zA-Z0-9_\.]+$/,
+          //     message: '用户名由数字字母下划线和.组成'
+          //   }
         }
       },
     }
-  
+
   });
 
 
@@ -72,47 +72,67 @@ $('form').bootstrapValidator({
 
 
 }).on('success.form.bv', function (e) {
-    e.preventDefault();
-    //使用ajax提交逻辑
-    // ajxa验证用户名密码
-    NProgress.start();
-     
-        // console.log("bbbb");
-        $.ajax({
-            url:'/employee/employeeLogin',
-            data:$('form').serialize(),
-            type:'post',
-            success:function(backData){
-                // console.log(backData);
+  e.preventDefault();
+  //使用ajax提交逻辑
+  // ajxa验证用户名密码
+  NProgress.start();
 
-                var validator = $("form").data('bootstrapValidator');  //获取表单校验实例
-                if (backData.error==1000){
-                    console.log("账号或密码有错误");
-                    validator.updateStatus("username", "INVALID", "callback")
-                }else if (backData.error==1001) {
-                    console.log("密码错误");
-                    validator.updateStatus("password", "INVALID", "callback")
-                }
-                else {
-                    window.location.href="http://localhost:3000/myManage/myindex.html";
-                }
-                setInterval(function(){
-                    NProgress.done();
+  // console.log("bbbb");
+  $.ajax({
+    url: '/employee/employeeLogin',
+    data: $('form').serialize(),
+    type: 'post',
+    success: function (backData) {
+      // console.log(backData);
 
-                },2000)
-                
+      var validator = $("form").data('bootstrapValidator'); //获取表单校验实例
+      if (backData.error == 1000) {
+        console.log("账号或密码有错误");
+        validator.updateStatus("username", "INVALID", "callback")
+      } else if (backData.error == 1001) {
+        console.log("密码错误");
+        validator.updateStatus("password", "INVALID", "callback")
+      } else {
+        //检验是否处于已登录状态
+        function isLogin() {
+          $.ajax({
+            url: '/employee/checkRootLogin',
+            success: function (backData) {
+              // console.log(backData);
+              // console.log('登陆了吗');
+              if (backData.success){
+                window.location.href = "http://localhost:3000/myManage/myindex.html";
+              }else{
+                window.location.href = "./login.html";
+              }
+              
+            },
+            error: function (xhr) {
+              console.log("出错了" + xhr);
+
             }
+          })
+        };
+        isLogin();
 
-        })
-   
+
+       
+      }
+      setInterval(function () {
+        NProgress.done();
+
+      }, 2000)
+
+    }
+
+  })
+
 
 });
 
 //重置按钮
-$('.reset1').on('click',function(){
-    console.log("chongzhzi");
-    var validator = $("form").data('bootstrapValidator');  //获取表单校验实例
-    validator.resetForm();  
+$('.reset1').on('click', function () {
+  console.log("chongzhzi");
+  var validator = $("form").data('bootstrapValidator'); //获取表单校验实例
+  validator.resetForm();
 })
-
-
