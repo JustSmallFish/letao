@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet/less" href="./css/userManage.less">
+    <script src="./lib//less/less-js/less.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">登出信息</h4>
+                </div>
+                <div class="modal-body">
+                    你确定要跑路？？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default " data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container clearfix" id="layout">
+        <div class="header clearfix" id="header">
+            <a href="javascript:void(0)" class="logo">
+                ITBOSS
+            </a>
+            <div class="btn1">
+                <a href="javascript:void(0)" class="leftFold">
+                    <i class="glyphicon  glyphicon-align-justify"></i>
+                </a>
+                <a href="javascript:void(0)" class="logoutBtn">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                </a>
+                <!-- Button trigger modal -->
+
+            </div>
+        </div>
+        <!-- 侧边栏 -->
+        <div id="leftSide" class="pull-left">
+            <div class="userInfor">
+                <img class="headPortrait" src="./images/default.png" alt="">
+                <i>超级管理员</i>
+            </div>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" id="classifyFoldBtn">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        <span>分类管理</span>
+                    </a>
+                    <div class="classify" id="classifyFoldContent">
+
+                        <a href="javascript:void(0)" class="level1">一级分类</a>
+                        <a href="javascript:void(0)" class="level2">二级分类</a>
+                        </a>
+                    </div>
+
+                </li>
+                <li>
+                    <a href="javascript:void(0)  ">
+                        <i class="glyphicon glyphicon-tags"></i>
+                        <span>商标管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 主体 -->
+        <div id="contentBody" class=" clearfix">
+            <div class="header bg-warning">
+                <i class="text-primary">管理系统 </i> /
+                <span class="text-muted">用户管理</span>
+            </div>
+            <div class="formContent">
+
+
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center" >序号</th>
+                                <th style="text-align:center" >用户名</th>
+                                <th style="text-align:center" >手机号</th>
+                                <th style="text-align:center" >状态</th>
+                                <th style="text-align:center" >操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyTmp">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>itcast</td>
+                                <td>1888888888</td>
+                                <td>已禁用</td>
+                                <td>
+                                    <button class="btn btn-primary center-block">启用</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ul id="pagintor">
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- //form模板 -->
+    <script id="formTmp" type="text/html">
+        {{each rows}}
+                    <tr>
+                        <th>{{(page-1)*size+$index+1}}</th>
+                        <td style="text-align:center"  >{{$value.username}}</td>
+                        <td style="text-align:center"  >{{$value.mobile}}</td>
+                        <td style="text-align:center"  >{{if $value.isDelete==1}}
+                                已启用
+                           {{else}}
+                            已禁用
+                            {{/if}}
+                        </td>
+                        <td style="text-align:center" data-isDelete={{$value.isDelete}}  >
+                        {{if $value.isDelete==0}}
+                            <button class="btn btn-primary center-block">启用</button>
+                            {{else}}
+                            <button class="btn btn-danger center-block">禁用</button>
+                            {{/if}}
+                        </td>
+                    </tr>
+        {{/each}}
+    </script>
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/template/template.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="./js/commen.js"></script>
+    <script src="./js/userManage.js"></script>
+</body>
+
+</html>
