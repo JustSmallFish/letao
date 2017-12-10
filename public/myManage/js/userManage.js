@@ -43,10 +43,10 @@ $(function () {
 
         var deleteStatu = $(this).attr('data-isDelete');
         console.log(deleteStatu);
-        // if (deleteStatu==0){
-        //     $('#tbodyTmp>tr>td>button').html('启用');
-        //     $('#tbodyTmp>tr>td>button').removeClass("btn-danger").addClass("btn-primary")
-        // }
+        if (deleteStatu==0){
+            $('#tbodyTmp>tr>td>button').html('启用');
+            $('#tbodyTmp>tr>td>button').removeClass("btn-danger").addClass("btn-primary")
+        }
 
     })
 
