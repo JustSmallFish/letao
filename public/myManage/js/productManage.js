@@ -139,14 +139,14 @@ $("#form1").bootstrapValidator({
     $.ajax({
         url:'/product/addProduct',
         type:'POST',
-        data:$('form1').serialize(),
+        data:$('#form1').serialize(),
         success:function(backData){
             console.log(backData);
             $('#myModal2').modal('hide');
             getData();
         },
         error:function(xhr){
-            console.log(xhr+"书如有问题");
+            console.log(xhr);
         }
 
     })
