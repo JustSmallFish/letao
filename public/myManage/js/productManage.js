@@ -135,6 +135,7 @@ $("#form1").bootstrapValidator({
     e.preventDefault();
     //使用ajax提交逻辑
     console.log('表单验证成功啦');
+    console.log($('form1').serialize());
     $.ajax({
         url:'/product/addProduct',
         type:'POST',
@@ -142,12 +143,11 @@ $("#form1").bootstrapValidator({
         success:function(backData){
             console.log(backData);
             $('#myModal2').modal('hide');
+            getData();
         },
         error:function(xhr){
             console.log(xhr+"书如有问题");
         }
-
-
 
     })
 
