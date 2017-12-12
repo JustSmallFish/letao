@@ -1,0 +1,85 @@
+@import url('./base.less');
+@mainColor: #006699;
+//页面主体
+
+#lt_container {
+    // margin-top: 45px;
+    //轮播图
+    #slider {
+        overflow: hidden;
+    }
+    //分类导航
+    .contentBody {
+        width: 100%;
+        padding: 10px; // 分类导航
+        .navCateloge {
+            width: 100%;
+            >ul {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap; // justify-content: space-between;
+                >li {
+                    width: 33.3333333333333%;
+                    >a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        >img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        } // 商品列表
+        .productList {
+            width: 100%;
+            >ul {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                >li {
+                    padding: 0 10px;
+                    width: 50%;
+                    >a {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        >img {
+                            width: 100%;
+                        }
+                        >p {
+                            font-size: 14px;
+                            color: deepskyblue;
+                        }
+                        >.price {
+                            margin: 0 auto ;
+                            // display: flex;
+                            // justify-content: space-between;
+                            color: red;
+                            font-size: 13px;
+                            >i {
+                                // float: right;
+                                text-decoration: line-through;
+                                color: gray;
+                                
+                            }
+                            // >span {
+                            //     // float: left;
+                            // }
+                        }
+                        >button {
+                            width: 80px;
+                            height: 33px;
+                            margin: 10 auto;
+                            background-color: @mainColor;
+                            color: white;
+                            text-align: center;
+                            line-height: 33px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
