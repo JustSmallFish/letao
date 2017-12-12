@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0,user-scalable=no'>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./libs/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./libs/mui/css/mui.min.css">
+    <!-- 导入自己的CSS -->
+    <!-- <link rel="stylesheet" href="./less/base.less"> -->
+    <link rel="stylesheet/less" href="./less/search.less">
+    <script src="./libs/less/less-js/less.js"></script>
+
+</head>
+
+<body>
+    <div class="lt_container">
+        <!-- //头部 -->
+        <div class="lt_header" id="lt_header">
+            <a href="#">
+                <span class="fa  fa-chevron-left"></span>
+            </a>
+            <h3>商品列表</h3>
+            <a href="#" style="opacity:0">
+                <span class="fa fa-search"></span>
+            </a>
+        </div>
+        <!-- 主题内容 -->
+        <div class="lt_content" id="lt_container">
+            <!-- //搜索栏 -->
+            <div class="searchLine">
+                <input type="search">
+                <button class="mui-btn mui-btn-primary ">搜索</button>
+            </div>
+
+            <!-- 搜索历史 -->
+            <div class="history">
+                <i class="mui-pull-left">搜索历史</i>
+                <span class="mui-pull-right fa fa-trash-o">清空记录</span>
+            </div>
+
+            <!-- 搜索历史列表 -->
+            <div class="historyList">
+                <ul>
+                    <li>
+                        <i class="mui-pull-left">nfccc</i>
+                        <span class="mui-pull-right fa  fa-arrows-alt"></span>
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+        </div>
+        <!-- 尾部 -->
+        <div class="lt_footer" id="lt_footer">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-home"></span>
+                        <i>首页</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="./category.html">
+                        <span class="fa fa-list"></span>
+                        <i>分类</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-shopping-cart"></span>
+                        <i>购物车</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-user"></span>
+                        <i>会员中心</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="./libs/mui/js/mui.min.js"></script>
+<script src="./js/commen.js"></script>
+<script src="./js/search.js"></script>

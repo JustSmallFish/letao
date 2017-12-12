@@ -1,0 +1,80 @@
+@import url('./base.less');
+@mainColor: #006699;
+//页面主体
+#lt_container {
+    flex: 1;
+    width: 100%;
+    .searchLine{
+        display: flex;
+        width: 100%;
+        padding: 10px;
+        >button {
+            padding: 0px;
+            width: 54px;
+            height: 34px;
+            text-align: center;
+            line-height: 33px;
+            border-radius: 0px;
+        }
+        >input {
+            margin-bottom: 1px;
+            background-color: white;
+            flex: 1;
+            border: 1px solid skyblue;
+            border-radius: 0px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+
+
+    }
+
+    .history {
+        padding:0 10px ;
+        width: 100%;
+        text-align: center;
+        height: 21px;
+        line-height: 21px;
+        color: gray;
+        // >i.mui-pull-left{
+        // }
+
+    }
+
+
+    //搜索历史列表
+    .historyList {
+        width: 100%;
+        >ul {
+            width: 100%;
+            >li{
+                margin-bottom: -1px;
+                border: 1px dashed #ccc;
+                padding: 0px 10px;
+                width: 100%;
+                color: blue;
+                height: 30px;
+                line-height: 28 px;
+                >i {
+                    line-height: 30px;
+                }
+                >span {
+
+                    color: gray;
+                    line-height: 30px;
+
+                }
+
+            }
+        }
+            
+
+
+    }
+
+    
+
+
+}
+

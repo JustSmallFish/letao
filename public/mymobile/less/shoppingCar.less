@@ -2,7 +2,10 @@
 @mainColor: #006699;
 //页面主体
 #lt_container {
+    
+    position: relative;
     flex: 1;
+
     .product {
         // width: 100%;
         // height: 85px;
@@ -44,4 +47,29 @@
             }
         }
     }
+}
+
+//订单通栏
+
+#dingdan {
+    border: 1px solid #ccc;
+    padding:  0 10px;
+    height: 33px;
+    width: 100%;
+    background-color: #eeeeee;
+    >.mui-btn {
+        display: block;
+        height: 100%;
+        width: 80px;
+        text-align: center;
+        color: white;
+    }
+    >i {
+        // display: block;
+        color: red;
+        font-size: 12px;
+        height: 33px;;
+        line-height: 33px;
+    }
+
 }
